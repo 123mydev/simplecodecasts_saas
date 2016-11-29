@@ -13,10 +13,17 @@
               <% end %>
             </div>
             <div>
-              <%= link_to user do %>
-                <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
-              <% end %>
-              <p><%= user.profile.job_title %></p>
+                <%= link_to user do %>
+                    <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                <% end %>
+                <p>
+                    <%= user.profile.job_title %>
+                    <% if user.plan_id == 2 %>
+                        <span class="label label-danger">PRO</span>
+                    <% elsif user.plan_id == 1 %>
+                        <span class="label label-primary">BASIC</span>
+                    <% end %>
+                </p>
             </div>
           </div>
         </li>
